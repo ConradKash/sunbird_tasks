@@ -1,12 +1,8 @@
-from fastapi import FastAPI, Request, request, render_template
+from fastapi import FastAPI, request, render_template
 import uvicorn
-import sklearn
 import pickle
 import pandas as pd
 import re
-import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 import io
