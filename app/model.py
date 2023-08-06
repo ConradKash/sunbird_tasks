@@ -34,3 +34,5 @@ def predictm(ptext):
     x = cv.transform([ptext]).toarray()
     lang = model.predict(x)
     return classes[lang[0]]
+
+print(predictm('Nkwagala nyooo'))
