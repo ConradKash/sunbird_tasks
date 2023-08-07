@@ -1,5 +1,7 @@
 import pickle
 from pathlib import Path
+import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
 _version__ = "0.1.0"
