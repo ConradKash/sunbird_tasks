@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from app.model import _version__ as model_Version, predictm
+from model import _version__ as model_Version, predicted_language
 
 
 app = FastAPI()
@@ -15,11 +15,11 @@ class PredictionOut(BaseModel):
 def root():
     return {"Model Version": model_Version}
 
-@app.get("/{entText}")
-def transApi(entText):
-    return {"The language is in": predictm(entText)}
+@app.get("/{text}")
+def trans_api(text):
+    return {"The language is in": predicted_language(text)}
 
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: TextIn):
-    language = predictm(payload.text)
-    return {"Language": language}
+    language = predicted_language(payload.text)
+    return PredictionOut(language = language)

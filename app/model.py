@@ -24,17 +24,14 @@ classes = [
     'Runyankole',
     'Ateso'
 ]
-def dataPro(thWord):
-  rm = thWord
-  thWord = thWord.lower()
-  thWord = thWord.split()
-  thWord = word_tokenize(str(thWord))
-  thWord = ' '.join(thWord)
-  return thWord
-def predictm(ptext):
-    dataPro(ptext)
+def text_processing(translate_text ):
+  translate_text = translate_text .lower()
+  translate_text  = translate_text .split()
+  translate_text  = word_tokenize(str(translate_text ))
+  translate_text  = ' '.join(translate_text )
+  return translate_text 
+def predicted_language(ptext):
+    text_processing(ptext)
     x = cv.transform([ptext]).toarray()
     lang = model.predict(x)
     return classes[lang[0]]
-
-print(predictm('Nkwagala nyooo'))
