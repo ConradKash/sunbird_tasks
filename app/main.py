@@ -21,5 +21,5 @@ def trans_api(text):
 
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: TextIn):
-    language = predicted_language(payload.text)
-    return PredictionOut(language = language)
+    predict_language = predicted_language(payload.text)
+    return PredictionOut(language = predict_language)
