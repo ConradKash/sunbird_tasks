@@ -37,3 +37,5 @@ def predicted_language(ptext):
     x = cv.transform([process_text]).toarray()
     lang = model.predict(x)
     return classes[lang[0]]
+
+print(predicted_language("Nkwagalla nyo"))
