@@ -5,7 +5,7 @@ def test_acholi():
     
     
 def test_english():
-    assert predicted_language("I am going to the market") == 'English'
+    assert predicted_language("I am going to the ") == 'English'
     
 def test_lugbara():
     assert predicted_language("Ale mi ra!") == 'lugbara'
