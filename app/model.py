@@ -1,5 +1,7 @@
 import pickle
 from pathlib import Path
+import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
 _version__ = "0.1.0"
@@ -37,5 +39,3 @@ def predicted_language(ptext):
     x = cv.transform([process_text]).toarray()
     lang = model.predict(x)
     return classes[lang[0]]
-
-print(predicted_language("Nkwagalla nyo"))
