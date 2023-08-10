@@ -1,6 +1,7 @@
 name: Code checks
 
-on: push
+on: 
+  workflow_dispatch:
 
 jobs:
   job1:
