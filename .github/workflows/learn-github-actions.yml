@@ -1,13 +1,21 @@
-name: learn-github-actions
-run-name: ${{github.actor}} is learning Github actions
-on: [push]
+name: Code checks
+
+on: push
+
 jobs:
-    checks-bats-version:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                node-version: '18.x'
-            - run: npm install -g bats
-            - run: bats -v
+  job1:
+    name: linting
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Use Python version 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install Flake8
+      run: |
+        python -m pip install flake8
+    - name: Run linting tests
+      run: | 
+        flake8 app
