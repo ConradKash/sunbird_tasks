@@ -1,6 +1,6 @@
 - Fork this repository to create your own copy.
 -  ([More info about forking a repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
-- Clone your repository to access it locally: `git clone https://github.com/<your-username>/internship-assessment.git`. (Replace `<your-username>` with your Github username.)
+- Clone your repository to access it locally: `git clone https://github.com/<your-username>/model-test.git`. (Replace `<your-username>` with your Github username.)
 - Replace the model file `model.pkl` with your model file
 - then in the `model.py` replace the `True` if you used a pipeline
 - Create a python virtual environment: `python -m venv venv`
