@@ -5,13 +5,12 @@ import joblib
 nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 
-_version__ = "0.3.0"
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
 
    
-with open(f"{BASE_DIR}/model-{_version__}.pkl", "rb") as f:
-    model = joblib.load(f)
+with open(f"{BASE_DIR}/model.pkl", "rb") as f:
+    model = pickle.load(f)
    
  
     
@@ -26,7 +25,7 @@ classes = [
     'Runyankole',
     'Ateso'
 ]
-pipeline = True
+pipeline = False
 if pipeline == False:
     def text_processing(translate_text):
         translate_text = translate_text.lower()
