@@ -9,10 +9,11 @@ _version__ = "0.3.0"
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
 
-    
+   
 with open(f"{BASE_DIR}/model-{_version__}.pkl", "rb") as f:
     model = joblib.load(f)
    
+ 
     
 with open(f"{BASE_DIR}/transform.pkl", "rb") as f:
     cv = pickle.load(f)
