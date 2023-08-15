@@ -1,7 +1,7 @@
 from app.model import predicted_language
 
 def test_acholi():
-    assert predicted_language("I Amuru aa ki California i Amerika ento.") == 'Acholi'
+    assert predicted_language("Cang oyot.") == 'Acholi'
     
     
 def test_english():
