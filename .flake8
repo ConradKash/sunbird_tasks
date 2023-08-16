@@ -3,6 +3,7 @@ ignore =
     E251,
     E402,
     E712,
+    E302,
     W,
     D,
     F,
@@ -21,8 +22,5 @@ exclude =
     develop
     venv
     test
-per-file-ignores =
-    src/__init__.py:D104
-    src/*/__init__.py:D104
 max-complexity = 10
 import-order-style = pep8

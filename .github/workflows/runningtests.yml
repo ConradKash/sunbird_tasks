@@ -1,6 +1,8 @@
 name: Models tests
 
-on: push
+on:
+  workflow_run:
+    workflows: ["linting"]
 
 jobs:
   job1:
