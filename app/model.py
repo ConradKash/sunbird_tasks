@@ -57,6 +57,3 @@ else:
             lang = 5           
             
         return classes[lang]
-        
-
-print(predicted_language('This is a katale'))
