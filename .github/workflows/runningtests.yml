@@ -2,7 +2,7 @@ name: Models tests
 
 on:
   workflow_run:
-    workflows: ["linting"]
+    workflows: ["Code checks"]
 
 jobs:
   job1:
