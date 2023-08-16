@@ -2,3 +2,6 @@ scikit-learn==1.2.2
 nltk==3.8.1
 pytest
 pytest-cov
+python-coveralls
+coverage
+coveralls
