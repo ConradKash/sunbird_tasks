@@ -5,3 +5,4 @@ pytest-cov
 python-coveralls
 coverage
 coveralls
+pre-commit
