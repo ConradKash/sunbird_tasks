@@ -13,6 +13,9 @@ class TextIn(BaseModel):
 class PredictionOut(BaseModel):
     language: str
     
+class UserPost(BaseModel):
+    name: str
+    body: str
     
 @app.get("/")   
 def root():
