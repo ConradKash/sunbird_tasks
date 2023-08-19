@@ -21,9 +21,6 @@ def root():
 @app.post("/predict", response_model = PredictionOut)
 def predict(payload: TextIn):
     predict_language = predicted_language(payload.text)
+    print()
     return PredictionOut(language = predict_language)
-
-@app.put("/predict")
-def deliverable(textinput: TextIn, language_id: PredictionOut):
-    return {"item_name": textinput.text, "item_id": language_id.language}
 
