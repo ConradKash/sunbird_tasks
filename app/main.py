@@ -17,6 +17,7 @@ class UserPost(BaseModel):
     name: str
     body: str
     
+    
 @app.get("/")   
 def root():
     return {"Model Version LanguageID app"}
@@ -24,6 +25,6 @@ def root():
 @app.post("/predict", response_model = PredictionOut)
 def predict(payload: TextIn):
     predict_language = predicted_language(payload.text)
-    print()
     return PredictionOut(language = predict_language)
+
 
