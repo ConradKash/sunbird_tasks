@@ -5,7 +5,7 @@ from app.model import _version__ as model_Version, predicted_language
 
 app = FastAPI()
 
-
+x = 1
 class TextIn(BaseModel):
     text: str
     
