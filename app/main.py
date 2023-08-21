@@ -6,9 +6,12 @@ from time import perf_counter
 
 app = FastAPI()
 
-    
-class Prediction(BaseModel):
+
+class TextIn(BaseModel):
     text: str
+    
+    
+class PredictionOut(BaseModel):
     language: str
     proocess_time: float
     
@@ -17,8 +20,8 @@ class Prediction(BaseModel):
 def root():
     return {"Model Version LanguageID app"}
 
-@app.post("/predict", response_model = Prediction)
-def predict(payload: Prediction):
+@app.post("/predict", response_model = PredictionOut)
+def predict(payload: TextIn):
     start_time = perf_counter()
     
     predict_language = predicted_language(payload.text)
@@ -26,6 +29,5 @@ def predict(payload: Prediction):
     end_time = perf_counter()
     
     procrss_time = end_time - start_time
-    return Prediction(text = payload.text, language = predict_language, proocess_time = procrss_time)
-
+    return PredictionOut(language = predict_language, proocess_time = procrss_time)
 
