@@ -3,7 +3,9 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from app.model import predicted_language
 from time import perf_counter
+from app.scr import services as _services
 
+_services.create_database()
 
 app = FastAPI()
 
