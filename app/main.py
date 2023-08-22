@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from app.model import predicted_language
 from time import perf_counter
 
+
 app = FastAPI()
 
 
@@ -28,6 +29,6 @@ def predict(payload: TextIn):
     
     end_time = perf_counter()
     
-    procrss_time = end_time - start_time
+    process_time = end_time - start_time
 
-    return PredictionOut(language = predict_language, process_time = procrss_time)
+    return PredictionOut(language = predict_language, process_time = process_time)
