@@ -13,7 +13,7 @@ class TextIn(BaseModel):
     
 class PredictionOut(BaseModel):
     language: str
-    proocess_time: float
+    process_time: float
     
     
 @app.get("/")   
@@ -29,5 +29,5 @@ def predict(payload: TextIn):
     end_time = perf_counter()
     
     procrss_time = end_time - start_time
-    return PredictionOut(language = predict_language, proocess_time = procrss_time)
 
+    return PredictionOut(language = predict_language, process_time = procrss_time)
