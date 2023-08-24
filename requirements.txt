@@ -6,3 +6,4 @@ python-coveralls
 coverage
 coveralls
 pre-commit
+SQLAlchemy
