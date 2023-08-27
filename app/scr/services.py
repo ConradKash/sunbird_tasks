@@ -11,7 +11,7 @@ def get_db():
     finally:
         db.close()
         
-def send_report(db: _orm.Session, prediction: _schemas.PredictBase):
+def send_report(db: _orm.Session, prediction: _schemas.predictout):
     db_predict = _model.language_id(text=prediction.text, language=prediction.language, process_time=prediction.process_time)
     db.add(db_predict)
     db.commit()
