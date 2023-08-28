@@ -31,4 +31,4 @@ def test_ateso():
 def test_read_main():
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json() == {"Model Version LanguageID app"}
+    assert response.json() == ["Model Version LanguageID app"]
