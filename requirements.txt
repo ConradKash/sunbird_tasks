@@ -1,3 +1,10 @@
 scikit-learn==1.2.2
 nltk==3.8.1
+pydantic<2.0.0
 pytest
+pytest-cov
+python-coveralls
+coverage
+coveralls
+pre-commit
+SQLAlchemy

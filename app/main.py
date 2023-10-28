@@ -1,30 +1,28 @@
-from fastapi import FastAPI
+import fastapi as _fastapi
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from app.model import _version__ as model_Version, predicted_language
+from app.model import predicted_language
+from time import perf_counter
+import sqlalchemy.orm as _orm
+from app.scr import services as _services, schemas as _schemas
 
+_services.create_database()
 
-app = FastAPI()
-
-
-class TextIn(BaseModel):
-    text: str
+app = _fastapi.FastAPI()   
     
     
-class PredictionOut(BaseModel):
-    language: str
-    
-    
-@app.get("/")
+@app.get("/")   
 def root():
-    return {"Model Version": model_Version}
+    return {"Model Version LanguageID app"}
 
+@app.post("/predict", response_model = _schemas.predictout)
+def predict(payload: _schemas.PredictBase, db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    start_time = perf_counter()
+    
+    language = predicted_language(payload.text)
+    
+    end_time = perf_counter()
+    
+    process_time = end_time - start_time
 
-@app.get("/{text}")
-def trans_api(text):
-    return {"The language is in": predicted_language(text)}
-
-
-@app.post("/predict", response_model = PredictionOut)
-def predict(payload: TextIn):
-    predict_language = predicted_language(payload.text)
-    return PredictionOut(language = predict_language)
+    return _services.send_report(db=db, prediction=_schemas.predictout(text=payload.text, language = language, process_time = process_time))
